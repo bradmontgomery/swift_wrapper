@@ -46,7 +46,7 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
-if [ -n "$RACKSPACE_AUTH_URL" ]
+if [ -z "$RACKSPACE_AUTH_URL" ]
 then
     export RACKSPACE_AUTH_URL=https://auth.api.rackspacecloud.com/v1.0
 fi
