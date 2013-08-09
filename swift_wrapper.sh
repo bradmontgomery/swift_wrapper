@@ -66,6 +66,35 @@ fi
 # Prefix for all swift commands
 SWIFT="swift -A $RACKSPACE_AUTH_URL -U $RACKSPACE_USERNAME -K $RACKSPACE_API_KEY"
 
+
+# Change your container
+function swiftcontainer
+{
+    if [ -z "$1" ]
+    then
+        echo
+        echo "Your current containe is: $RACKSPACE_CLOUDFILES_CONTAINER"
+        echo
+        echo "USAGE: swiftcontainer <container-name>"
+        echo
+    else
+        export RACKSPACE_CLOUDFILES_CONTAINER=$1
+        echo "Changed container to: $RACKSPACE_CLOUDFILES_CONTAINER"
+    fi
+
+}
+
+# Delete a container
+function swiftdeletecontainer
+{
+    if [ -z "$1" ]
+    then
+        echo "Usage: swiftdeletecontainer <container_name>"
+    else
+        $SWIFT delete $1
+    fi
+}
+
 function swiftlistcontainers
 {
     $SWIFT list
@@ -93,6 +122,7 @@ function swiftupload
     fi
 }
 
+# Delete an object(s) from a container
 function swiftdelete
 {
     if [ -z "$@" ]
@@ -134,6 +164,8 @@ function swifthelp
     esac
     done
     echo
+    echo "* swiftcontainer - view or set your current container"
+    echo "* swiftdeletecontainer - Delete a container and all of its contents"
     echo "* swiftlistcontainers - lists the containers in CloudFiles"
     echo "* swiftlist - lists the items in your default container"
     if $verbose ; then
