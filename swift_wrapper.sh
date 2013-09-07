@@ -145,6 +145,9 @@ function swiftdownload
     if [ -z "$@" ]
     then
         echo "Usage: swiftdownload <object> [...]"
+        echo "       swiftdownload \*  -- to get all files in the container."
+    elif [ "$@" == '*' ]; then
+        $SWIFT download $RACKSPACE_CLOUDFILES_CONTAINER
     else
         $SWIFT download $RACKSPACE_CLOUDFILES_CONTAINER $@
     fi
