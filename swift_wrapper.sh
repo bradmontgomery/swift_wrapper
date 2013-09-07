@@ -212,7 +212,9 @@ function swifthelp
         echo "
     Usage:
 
-        swiftdownload <object> [...]
+        swiftdownload <object> [...] -- Download one or more specific object
+        swiftdownload \*  -- download every object in the current container
+
     "
     fi
 
