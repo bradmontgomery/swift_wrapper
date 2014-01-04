@@ -80,7 +80,7 @@ function swiftcontainer
     if [ -z "$1" ]
     then
         echo
-        echo "Your current containe is: $RACKSPACE_CLOUDFILES_CONTAINER"
+        echo "Your current container is: $RACKSPACE_CLOUDFILES_CONTAINER"
         echo
         echo "USAGE: swiftcontainer <container-name>"
         echo
