@@ -73,6 +73,14 @@ fi
 # Prefix for all swift commands
 SWIFT="swift -A $RACKSPACE_AUTH_URL -U $RACKSPACE_USERNAME -K $RACKSPACE_API_KEY"
 
+# just print out the swift command in case we need to tack on more options.
+function swiftcommand
+{
+    echo
+    echo "$SWIFT"
+    echo
+}
+
 
 # Change your container
 function swiftcontainer
